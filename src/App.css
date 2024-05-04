@@ -24,9 +24,6 @@ h1,
   color: #db6517;
 }
 
-.li {
-  list-style: none !important;
-}
 li::marker {
   content: "☛";
 }
