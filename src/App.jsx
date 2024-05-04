@@ -15,40 +15,52 @@ function App() {
 
   const ListItem = styled.li`
     cursor: pointer;
+    color: #db6517;
   `;
 
   return (
     <>
-      <InputGroup className="mb-2">
-        <Form.Control
-          aria-label="Hedef"
-          aria-describedby="basic-addon2"
-          className="form"
-          onChange={(e) => {
-            setTodoInput(e.target.value);
-          }}
-          value={todoInput}
-        />
-        <Button
-          onClick={addTodo}
-          className="btn btn-primary"
-          id="button-addon2"
-        >
-          Ekle
-        </Button>
-      </InputGroup>
-      <ul>
-        {todos.map((todo) => (
-          <ListItem
-            onClick={() => {
-              setTodos(todos.filter((filterTodo) => filterTodo !== todo));
-            }}
-            key={todo}
-          >
-            {todo}
-          </ListItem>
-        ))}
-      </ul>
+      <div>
+        <div className="container">
+          <div className="row">
+            <div className=" col">
+              <h1>ToDoList</h1>
+              <InputGroup className="mb-5">
+                <Form.Control
+                  aria-label="Hedef"
+                  aria-describedby="basic-addon2"
+                  className="form"
+                  onChange={(e) => {
+                    setTodoInput(e.target.value);
+                  }}
+                  value={todoInput}
+                />
+                <Button
+                  onClick={addTodo}
+                  className="btn btn-warning"
+                  id="button-addon2"
+                >
+                  Ekle
+                </Button>
+              </InputGroup>
+              <ul>
+                {todos.map((todo) => (
+                  <ListItem
+                    onClick={() => {
+                      setTodos(
+                        todos.filter((filterTodo) => filterTodo !== todo)
+                      );
+                    }}
+                    key={todo}
+                  >
+                    {todo}
+                  </ListItem>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
